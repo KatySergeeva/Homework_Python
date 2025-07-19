@@ -5,10 +5,10 @@ from pages.ShopMainPage import ShopMainPage
 from pages.ShopCardPage import ShopCardPage
 from pages.ShopOrderPage import ShopOrderPage
 
-browser = webdriver.Firefox()
-
 
 def test_shop():
+    browser = webdriver.Firefox()
+
     authorization_page = ShopAuthorizationPage(browser)
     authorization_page.authorization()
 
@@ -21,7 +21,6 @@ def test_shop():
 
     order_page = ShopOrderPage(browser)
     order_page.data_registration()
-    order_page.total_sum()
 
     total = order_page.total_sum()
     assert total == '58.29'
